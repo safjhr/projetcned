@@ -1,7 +1,7 @@
 ﻿
 namespace CD1
 {
-    partial class Form2
+    partial class ajoutperso
     {
         /// <summary>
         /// Required designer variable.

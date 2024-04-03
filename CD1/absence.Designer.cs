@@ -1,7 +1,7 @@
 ﻿
 namespace CD1
 {
-    partial class Form5
+    partial class absence
     {
         /// <summary>
         /// Required designer variable.

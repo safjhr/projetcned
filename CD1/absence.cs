@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CD1
 {
-    public partial class Form2 : Form
+    public partial class absence : Form
     {
-        public Form2()
+        public absence()
         {
             InitializeComponent();
         }

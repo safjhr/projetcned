@@ -1,7 +1,7 @@
 ﻿
 namespace CD1
 {
-    partial class Form7
+    partial class modifierabsence
     {
         /// <summary>
         /// Required designer variable.

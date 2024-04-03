@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CD1
 {
-    public partial class Form3 : Form
+    public partial class personnel : Form
     {
-        public Form3()
+        public personnel()
         {
             InitializeComponent();
         }

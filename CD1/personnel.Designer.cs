@@ -1,7 +1,7 @@
 ﻿
 namespace CD1
 {
-    partial class Form3
+    partial class personnel
     {
         /// <summary>
         /// Required designer variable.
@@ -90,7 +90,7 @@ namespace CD1
             this.button4.Text = "Absence";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // personnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,8 +101,8 @@ namespace CD1
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
-            this.Name = "Form3";
-            this.Text = "Supprimer un personnel";
+            this.Name = "personnel";
+            this.Text = "liste des personnels";
             this.ResumeLayout(false);
             this.PerformLayout();
 
