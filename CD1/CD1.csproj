@@ -113,12 +113,6 @@
     <Compile Include="connexion.Designer.cs">
       <DependentUpon>connexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajoutperso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ajoutperso.Designer.cs">
-      <DependentUpon>ajoutperso.cs</DependentUpon>
-    </Compile>
     <Compile Include="personnel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,12 +131,6 @@
     <Compile Include="absence.Designer.cs">
       <DependentUpon>absence.cs</DependentUpon>
     </Compile>
-    <Compile Include="ajoutabsence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ajoutabsence.Designer.cs">
-      <DependentUpon>ajoutabsence.cs</DependentUpon>
-    </Compile>
     <Compile Include="modifierabsence.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,9 +147,6 @@
     <EmbeddedResource Include="connexion.resx">
       <DependentUpon>connexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ajoutperso.resx">
-      <DependentUpon>ajoutperso.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="personnel.resx">
       <DependentUpon>personnel.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,9 +155,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="absence.resx">
       <DependentUpon>absence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ajoutabsence.resx">
-      <DependentUpon>ajoutabsence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifierabsence.resx">
       <DependentUpon>modifierabsence.cs</DependentUpon>
