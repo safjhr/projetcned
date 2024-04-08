@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace CD1.modele
 {
-    class service
+    public class service
     {
-        public int IdService { get; set; }
-        public string Nom { get; set; }
+        public int IdService { get; }
+        public string Nom { get; }
+
+
+        public service(int idservice, string nom)
+        {
+            this.IdService = idservice;
+            this.Nom = nom;
+        }
+
+        public override string ToString()
+        {
+            return this.Nom;
+        }
     }
 }

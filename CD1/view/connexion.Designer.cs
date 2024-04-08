@@ -1,5 +1,5 @@
 ﻿
-namespace CD1
+namespace CD1.view
 {
     partial class Connexion
     {

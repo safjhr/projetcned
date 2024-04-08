@@ -1,5 +1,5 @@
 ﻿
-namespace CD1
+namespace CD1.view
 {
     partial class personnel
     {
@@ -81,7 +81,7 @@ namespace CD1
             // 
             // btnmodifier
             // 
-            this.btnmodifier.Location = new System.Drawing.Point(27, 242);
+            this.btnmodifier.Location = new System.Drawing.Point(449, 242);
             this.btnmodifier.Name = "btnmodifier";
             this.btnmodifier.Size = new System.Drawing.Size(75, 23);
             this.btnmodifier.TabIndex = 4;
@@ -110,7 +110,7 @@ namespace CD1
             // 
             // btnajouter
             // 
-            this.btnajouter.Location = new System.Drawing.Point(345, 130);
+            this.btnajouter.Location = new System.Drawing.Point(394, 130);
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(121, 23);
             this.btnajouter.TabIndex = 7;
@@ -121,7 +121,7 @@ namespace CD1
             // srvaff
             // 
             this.srvaff.FormattingEnabled = true;
-            this.srvaff.Location = new System.Drawing.Point(521, 77);
+            this.srvaff.Location = new System.Drawing.Point(525, 77);
             this.srvaff.Name = "srvaff";
             this.srvaff.Size = new System.Drawing.Size(121, 21);
             this.srvaff.TabIndex = 9;

@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace CD1.modele
 {
-    class responsable
+    public class Responsable
     {
         public string Login { get; set; }
         public string Pwd { get; set; }
+
+
+        public Responsable(string login, string pwd)
+        {
+            this.Login = login;
+            this.Pwd = pwd;
+        }
     }
 }
