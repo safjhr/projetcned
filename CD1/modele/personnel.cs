@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CD1.modele
 {
-    public class personnel
+    public class Personnel
     {
-        public personnel(int idpersonnel, string nom, string prenom, string tel, string mail, service service)
+        public Personnel(int idpersonnel, string nom, string prenom, string tel, string mail, service service)
         {
             this.IdPersonnel = idpersonnel;
             this.Nom = nom;

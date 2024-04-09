@@ -2,6 +2,7 @@
 using CD1.controller;
 using System.Windows.Forms;
 using CD1.modele;
+using CD1.view;
 
 namespace CD1.view
 {
@@ -37,7 +38,7 @@ namespace CD1.view
                 }
                 else
                 {
-                    MessageBox.Show("Authentification incorrecte ou vous n'êtes pas admin", "Alerte");
+                    MessageBox.Show("Authentification incorrecte", "Alerte");
                 }
             }
         }

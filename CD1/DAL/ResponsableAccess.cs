@@ -31,8 +31,8 @@ namespace CD1.DAL
         {
             if (access.Manager != null)
             {
-                string req = "select * from responsable";
-                req += "where login=@login and pwd=SHA2(@pwd, 256);";
+                string req = "select * from responsable ";
+                req += "where login=@login and pwd=@pwd;";
                 Dictionary<string, object> parameters = new Dictionary<string, object> {
                     { "@login", responsable.Login },
                     { "@pwd", responsable.Pwd }
@@ -55,9 +55,6 @@ namespace CD1.DAL
             }
             return false;
         }
-
-        
-
-
     }
 }
+

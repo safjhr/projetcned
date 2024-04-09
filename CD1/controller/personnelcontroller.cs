@@ -1,7 +1,7 @@
 ﻿using CD1.DAL;
 using CD1.modele;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+
 
 namespace CD1.controller
 {
@@ -29,7 +29,7 @@ namespace CD1.controller
         /// Récupère et retourne les infos des développeurs
         /// </summary>
         /// <returns>liste des développeurs</returns>
-        public List<personnel> GetLesPersonnels()
+        public List<Personnel> GetLesPersonnels()
         {
             return personnelAccess.GetLesPersonnels();
         }
@@ -47,7 +47,7 @@ namespace CD1.controller
         /// Demande de suppression d'un développeur
         /// </summary>
         /// <param name="developpeur">objet developpeur à supprimer</param>
-        public void DelPersonnel(personnel personnel)
+        public void DelPersonnel(Personnel personnel)
         {
             personnelAccess.DelPersonnel(personnel);
         }
@@ -57,7 +57,7 @@ namespace CD1.controller
         /// Demande d'ajout d'un développeur
         /// </summary>
         /// <param name="developpeur">objet developpeur à ajouter</param>
-        public void AddPersonnel(personnel personnel)
+        public void AddPersonnel(Personnel personnel)
         {
             personnelAccess.AddPersonnel(personnel);
         }
@@ -66,7 +66,7 @@ namespace CD1.controller
         /// Demande de modification d'un développeur
         /// </summary>
         /// <param name="developpeur">objet developpeur à modifier</param>
-        public void UpdatePersonnel(personnel personnel)
+        public void UpdatePersonnel(Personnel personnel)
         {
             personnelAccess.UpdatePersonnel(personnel);
         }

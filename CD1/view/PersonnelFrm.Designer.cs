@@ -29,7 +29,6 @@ namespace CD1.view
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.btnsupprimer = new System.Windows.Forms.Button();
             this.btnannuler = new System.Windows.Forms.Button();
             this.btnmodifier = new System.Windows.Forms.Button();
@@ -46,33 +45,27 @@ namespace CD1.view
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvPersonnels = new System.Windows.Forms.DataGridView();
+            this.grpPersonnel = new System.Windows.Forms.GroupBox();
+            this.grpLesPersonnels = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnels)).BeginInit();
+            this.grpPersonnel.SuspendLayout();
+            this.grpLesPersonnels.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Sélectionner un personnel";
             // 
             // btnsupprimer
             // 
-            this.btnsupprimer.Location = new System.Drawing.Point(189, 242);
+            this.btnsupprimer.Location = new System.Drawing.Point(87, 175);
             this.btnsupprimer.Name = "btnsupprimer";
             this.btnsupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnsupprimer.TabIndex = 2;
             this.btnsupprimer.Text = "Supprimer";
             this.btnsupprimer.UseVisualStyleBackColor = true;
+            this.btnsupprimer.Click += new System.EventHandler(this.btnsupprimer_Click);
             // 
             // btnannuler
             // 
-            this.btnannuler.Location = new System.Drawing.Point(310, 242);
+            this.btnannuler.Location = new System.Drawing.Point(249, 175);
             this.btnannuler.Name = "btnannuler";
             this.btnannuler.Size = new System.Drawing.Size(75, 23);
             this.btnannuler.TabIndex = 3;
@@ -81,7 +74,7 @@ namespace CD1.view
             // 
             // btnmodifier
             // 
-            this.btnmodifier.Location = new System.Drawing.Point(449, 242);
+            this.btnmodifier.Location = new System.Drawing.Point(6, 175);
             this.btnmodifier.Name = "btnmodifier";
             this.btnmodifier.Size = new System.Drawing.Size(75, 23);
             this.btnmodifier.TabIndex = 4;
@@ -91,7 +84,7 @@ namespace CD1.view
             // 
             // btnabsence
             // 
-            this.btnabsence.Location = new System.Drawing.Point(108, 242);
+            this.btnabsence.Location = new System.Drawing.Point(168, 175);
             this.btnabsence.Name = "btnabsence";
             this.btnabsence.Size = new System.Drawing.Size(75, 23);
             this.btnabsence.TabIndex = 5;
@@ -100,7 +93,7 @@ namespace CD1.view
             // 
             // btnann
             // 
-            this.btnann.Location = new System.Drawing.Point(521, 130);
+            this.btnann.Location = new System.Drawing.Point(420, 142);
             this.btnann.Name = "btnann";
             this.btnann.Size = new System.Drawing.Size(119, 23);
             this.btnann.TabIndex = 10;
@@ -110,7 +103,7 @@ namespace CD1.view
             // 
             // btnajouter
             // 
-            this.btnajouter.Location = new System.Drawing.Point(394, 130);
+            this.btnajouter.Location = new System.Drawing.Point(283, 142);
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(121, 23);
             this.btnajouter.TabIndex = 7;
@@ -121,7 +114,7 @@ namespace CD1.view
             // srvaff
             // 
             this.srvaff.FormattingEnabled = true;
-            this.srvaff.Location = new System.Drawing.Point(525, 77);
+            this.srvaff.Location = new System.Drawing.Point(420, 81);
             this.srvaff.Name = "srvaff";
             this.srvaff.Size = new System.Drawing.Size(121, 21);
             this.srvaff.TabIndex = 9;
@@ -129,7 +122,7 @@ namespace CD1.view
             // txtmail
             // 
             this.txtmail.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtmail.Location = new System.Drawing.Point(521, 28);
+            this.txtmail.Location = new System.Drawing.Point(420, 40);
             this.txtmail.Name = "txtmail";
             this.txtmail.Size = new System.Drawing.Size(100, 20);
             this.txtmail.TabIndex = 8;
@@ -137,7 +130,7 @@ namespace CD1.view
             // txttel
             // 
             this.txttel.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txttel.Location = new System.Drawing.Point(119, 127);
+            this.txttel.Location = new System.Drawing.Point(94, 120);
             this.txttel.Name = "txttel";
             this.txttel.Size = new System.Drawing.Size(100, 20);
             this.txttel.TabIndex = 7;
@@ -145,7 +138,7 @@ namespace CD1.view
             // txtprenom
             // 
             this.txtprenom.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtprenom.Location = new System.Drawing.Point(119, 77);
+            this.txtprenom.Location = new System.Drawing.Point(94, 81);
             this.txtprenom.Name = "txtprenom";
             this.txtprenom.Size = new System.Drawing.Size(100, 20);
             this.txtprenom.TabIndex = 6;
@@ -153,7 +146,7 @@ namespace CD1.view
             // txtnom
             // 
             this.txtnom.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtnom.Location = new System.Drawing.Point(119, 28);
+            this.txtnom.Location = new System.Drawing.Point(94, 40);
             this.txtnom.Name = "txtnom";
             this.txtnom.Size = new System.Drawing.Size(100, 20);
             this.txtnom.TabIndex = 5;
@@ -161,7 +154,7 @@ namespace CD1.view
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(393, 80);
+            this.label6.Location = new System.Drawing.Point(299, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 13);
             this.label6.TabIndex = 4;
@@ -170,7 +163,7 @@ namespace CD1.view
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 31);
+            this.label5.Location = new System.Drawing.Point(299, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 3;
@@ -179,7 +172,7 @@ namespace CD1.view
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 130);
+            this.label4.Location = new System.Drawing.Point(17, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 2;
@@ -188,7 +181,7 @@ namespace CD1.view
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 80);
+            this.label3.Location = new System.Drawing.Point(17, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 1;
@@ -197,66 +190,73 @@ namespace CD1.view
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 31);
+            this.label2.Location = new System.Drawing.Point(17, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nom";
             // 
-            // panel1
+            // dgvPersonnels
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel1.Controls.Add(this.btnann);
-            this.panel1.Controls.Add(this.txtnom);
-            this.panel1.Controls.Add(this.btnajouter);
-            this.panel1.Controls.Add(this.txtprenom);
-            this.panel1.Controls.Add(this.srvaff);
-            this.panel1.Controls.Add(this.txttel);
-            this.panel1.Controls.Add(this.txtmail);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(27, 294);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(659, 170);
-            this.panel1.TabIndex = 11;
+            this.dgvPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersonnels.Location = new System.Drawing.Point(6, 19);
+            this.dgvPersonnels.Name = "dgvPersonnels";
+            this.dgvPersonnels.Size = new System.Drawing.Size(564, 150);
+            this.dgvPersonnels.TabIndex = 12;
             // 
-            // dataGridView1
+            // grpPersonnel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(576, 150);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.grpPersonnel.Controls.Add(this.txtnom);
+            this.grpPersonnel.Controls.Add(this.btnann);
+            this.grpPersonnel.Controls.Add(this.txtprenom);
+            this.grpPersonnel.Controls.Add(this.txttel);
+            this.grpPersonnel.Controls.Add(this.btnajouter);
+            this.grpPersonnel.Controls.Add(this.label2);
+            this.grpPersonnel.Controls.Add(this.label6);
+            this.grpPersonnel.Controls.Add(this.srvaff);
+            this.grpPersonnel.Controls.Add(this.label3);
+            this.grpPersonnel.Controls.Add(this.label4);
+            this.grpPersonnel.Controls.Add(this.txtmail);
+            this.grpPersonnel.Controls.Add(this.label5);
+            this.grpPersonnel.Location = new System.Drawing.Point(27, 261);
+            this.grpPersonnel.Name = "grpPersonnel";
+            this.grpPersonnel.Size = new System.Drawing.Size(576, 181);
+            this.grpPersonnel.TabIndex = 13;
+            this.grpPersonnel.TabStop = false;
+            this.grpPersonnel.Text = "groupBox1";
+            // 
+            // grpLesPersonnels
+            // 
+            this.grpLesPersonnels.Controls.Add(this.dgvPersonnels);
+            this.grpLesPersonnels.Controls.Add(this.btnmodifier);
+            this.grpLesPersonnels.Controls.Add(this.btnannuler);
+            this.grpLesPersonnels.Controls.Add(this.btnabsence);
+            this.grpLesPersonnels.Controls.Add(this.btnsupprimer);
+            this.grpLesPersonnels.Location = new System.Drawing.Point(27, 35);
+            this.grpLesPersonnels.Name = "grpLesPersonnels";
+            this.grpLesPersonnels.Size = new System.Drawing.Size(576, 220);
+            this.grpLesPersonnels.TabIndex = 14;
+            this.grpLesPersonnels.TabStop = false;
+            this.grpLesPersonnels.Text = "les personnels";
             // 
             // personnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 618);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnabsence);
-            this.Controls.Add(this.btnmodifier);
-            this.Controls.Add(this.btnannuler);
-            this.Controls.Add(this.btnsupprimer);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(627, 471);
+            this.Controls.Add(this.grpLesPersonnels);
+            this.Controls.Add(this.grpPersonnel);
             this.Name = "personnel";
             this.Text = "liste des personnels";
-            this.Load += new System.EventHandler(this.personnel_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnels)).EndInit();
+            this.grpPersonnel.ResumeLayout(false);
+            this.grpPersonnel.PerformLayout();
+            this.grpLesPersonnels.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnsupprimer;
         private System.Windows.Forms.Button btnannuler;
         private System.Windows.Forms.Button btnmodifier;
@@ -273,7 +273,8 @@ namespace CD1.view
         private System.Windows.Forms.TextBox txttel;
         private System.Windows.Forms.TextBox txtprenom;
         private System.Windows.Forms.TextBox txtnom;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPersonnels;
+        private System.Windows.Forms.GroupBox grpPersonnel;
+        private System.Windows.Forms.GroupBox grpLesPersonnels;
     }
 }
