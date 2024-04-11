@@ -90,6 +90,7 @@ namespace CD1.view
             this.btnabsence.TabIndex = 5;
             this.btnabsence.Text = "Absence";
             this.btnabsence.UseVisualStyleBackColor = true;
+            this.btnabsence.Click += new System.EventHandler(this.btnabsence_Click);
             // 
             // btnann
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using CD1.controller;
 using CD1.modele;
+using CD1.DAL;
 
 namespace CD1.view
 {
@@ -158,6 +159,20 @@ namespace CD1.view
             else
             {
                 MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
+            }
+        }
+
+        private void btnabsence_Click(object sender, EventArgs e)
+        {
+            if (dgvPersonnels.SelectedRows.Count > 0)
+            {
+                Personnel personnel = (Personnel)bdgPersonnels.Current;
+                absence frm = new absence(personnel);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel.", "Information");
             }
         }
     }

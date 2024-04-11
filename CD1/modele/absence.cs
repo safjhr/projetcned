@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace CD1.modele
 {
-    class absence
+    public class Absence
     {
-        public int IdPersonnel { get; set; }
+        public Absence(int idpersonnel, System.DateTime datedebut, System.DateTime datefin, motif motif)
+        {
+            this.IdPersonnel = idpersonnel;
+            this.DateDebut = datedebut;
+            this.DateFin = datefin;
+            this.Motif = motif;
+        }
+        
+
+        
+
+
+
+        public int IdPersonnel { get; }
         public DateTime DateDebut { get; set; }
         public DateTime? DateFin { get; set; }
-        public int IdMotif { get; set; }
+        public motif Motif { get; set; }
     }
 }

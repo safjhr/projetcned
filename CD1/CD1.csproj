@@ -118,9 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bddmanager\BddManager.cs" />
+    <Compile Include="controller\absencecontroller.cs" />
     <Compile Include="controller\connexioncontroller.cs" />
     <Compile Include="controller\personnelcontroller.cs" />
+    <Compile Include="DAL\AbsenceAccess.cs" />
     <Compile Include="DAL\Access.cs" />
+    <Compile Include="DAL\motifAccess.cs" />
     <Compile Include="DAL\personnelAccess.cs" />
     <Compile Include="DAL\ResponsableAccess.cs" />
     <Compile Include="DAL\serviceAccess.cs" />
@@ -142,13 +145,7 @@
     <Compile Include="view\absence.Designer.cs">
       <DependentUpon>absence.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\modifierabsence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\modifierabsence.Designer.cs">
-      <DependentUpon>modifierabsence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="modele\absence.cs" />
+    <Compile Include="modele\Absence.cs" />
     <Compile Include="modele\motif.cs" />
     <Compile Include="modele\Personnel.cs" />
     <Compile Include="modele\Responsable.cs" />
@@ -163,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\absence.resx">
       <DependentUpon>absence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\modifierabsence.resx">
-      <DependentUpon>modifierabsence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
