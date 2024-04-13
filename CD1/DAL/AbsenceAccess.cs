@@ -25,9 +25,11 @@ namespace CD1.DAL
                 string req = "SELECT a.idpersonnel, a.datedebut, a.datefin, m.idmotif, m.libelle " +
                              "FROM absence a " +
                              "JOIN motif m ON a.idmotif = m.idmotif " +
-                             "WHERE a.idpersonnel = @idPersonnel";
+                             "WHERE a.idpersonnel = @idpersonnel " +
+                             "ORDER BY datedebut DESC";
+
                 Dictionary<string, object> parameters = new Dictionary<string, object> {
-                { "@idpersonnel", personnel.IdPersonnel }
+            { "@idpersonnel", personnel.IdPersonnel }
             };
 
                 try
@@ -59,6 +61,115 @@ namespace CD1.DAL
             }
             return absences;
         }
+
+
+        public void DelAbsence(Absence absence)
+        {
+            if (access.Manager != null)
+            {
+                string req = "DELETE FROM absence WHERE idpersonnel = @idpersonnel AND datedebut = @datedebut AND datefin = @datefin";
+                Dictionary<string, object> parameters = new Dictionary<string, object> {
+            {"@idpersonnel", absence.IdPersonnel },
+            {"@datedebut", absence.DateDebut },
+            {"@datefin", absence.DateFin }
+        };
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Log.Error("AbsenceAccess.DelAbsence catch req={0} erreur={1}", req, e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+
+
+        public void AddAbsenceForPersonnel(Personnel personnel, Absence absence)
+        {
+            if (access.Manager != null)
+            {
+                string req = "INSERT INTO absence (idpersonnel, datedebut, datefin, idmotif) VALUES (@idpersonnel, @datedebut, @datefin, @idmotif)";
+                Dictionary<string, object> parameters = new Dictionary<string, object> {
+            { "@idpersonnel", personnel.IdPersonnel },
+            { "@datedebut", absence.DateDebut },
+            { "@datefin", absence.DateFin },
+            { "@idmotif", absence.Motif.IdMotif }
+        };
+
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Log.Error("Erreur lors de l'ajout de l'absence pour le personnel. Requête : {0}, Erreur : {1}", req, e.Message);
+                }
+            }
+        }
+
+
+
+        public void UpdateAbsence(Absence absence)
+        {
+            if (access.Manager != null)
+            {
+                string req = "update absence set datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif where idpersonnel = @idpersonnel";
+                Dictionary<string, object> parameters = new Dictionary<string, object> {
+                    {"@idpersonnel", absence.IdPersonnel},
+                    { "@datedebut", absence.DateDebut },
+                    { "@datefin", absence.DateFin },
+                    { "@idmotif", absence.Motif.IdMotif }
+                };
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Log.Error("AbsenceAccess.UpdateAbsence catch req={0} erreur={1}", req, e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        public bool IsAbsenceScheduled(Personnel personnel, DateTime debut, DateTime fin)
+        {
+            if (access.Manager != null)
+            {
+                string req = "SELECT COUNT(*) FROM absence WHERE idpersonnel = @idpersonnel " +
+                             "AND ((@debut BETWEEN datedebut AND datefin) OR " +
+                             "(@fin BETWEEN datedebut AND datefin) OR " +
+                             "(datedebut BETWEEN @debut AND @fin))";
+
+                Dictionary<string, object> parameters = new Dictionary<string, object> {
+            { "@idpersonnel", personnel.IdPersonnel},
+            { "@debut", debut },
+            { "@fin", fin }
+        };
+
+                try
+                {
+                    object result = access.Manager.ReqSelect(req, parameters);
+                    int count = Convert.ToInt32(result);
+                    return count > 0;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Log.Error("Erreur lors de la vérification des absences programmées. Requête : {0}, Erreur : {1}", req, e.Message);
+                    return false;
+                }
+            }
+            return false;
+        }
+
+
     }
 
 }

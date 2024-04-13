@@ -1,5 +1,5 @@
 ﻿
-namespace CD1
+namespace CD1.view
 {
     partial class absence
     {
@@ -29,86 +29,91 @@ namespace CD1
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnajouter = new System.Windows.Forms.Button();
+            this.btnsupprimer = new System.Windows.Forms.Button();
+            this.btnrevenir = new System.Windows.Forms.Button();
+            this.btnmodifier = new System.Windows.Forms.Button();
+            this.grpAbsence = new System.Windows.Forms.GroupBox();
+            this.btnannuler = new System.Windows.Forms.Button();
             this.cbmotif = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtfin = new System.Windows.Forms.TextBox();
+            this.txtdebut = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAbsences = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.grpLesAbsences = new System.Windows.Forms.GroupBox();
+            this.grpAbsence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.grpLesAbsences.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnajouter
             // 
-            this.button1.Location = new System.Drawing.Point(299, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ajouter une absence";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnajouter.Location = new System.Drawing.Point(299, 72);
+            this.btnajouter.Name = "btnajouter";
+            this.btnajouter.Size = new System.Drawing.Size(128, 23);
+            this.btnajouter.TabIndex = 1;
+            this.btnajouter.Text = "Ajouter une absence";
+            this.btnajouter.UseVisualStyleBackColor = true;
+            this.btnajouter.Click += new System.EventHandler(this.btnajouter_Click);
             // 
-            // button2
+            // btnsupprimer
             // 
-            this.button2.Location = new System.Drawing.Point(442, 97);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Supprimer l\'absence";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnsupprimer.Location = new System.Drawing.Point(442, 63);
+            this.btnsupprimer.Name = "btnsupprimer";
+            this.btnsupprimer.Size = new System.Drawing.Size(128, 23);
+            this.btnsupprimer.TabIndex = 2;
+            this.btnsupprimer.Text = "Supprimer l\'absence";
+            this.btnsupprimer.UseVisualStyleBackColor = true;
+            this.btnsupprimer.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnrevenir
             // 
-            this.button3.Location = new System.Drawing.Point(442, 155);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Annuler";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnrevenir.Location = new System.Drawing.Point(442, 121);
+            this.btnrevenir.Name = "btnrevenir";
+            this.btnrevenir.Size = new System.Drawing.Size(128, 57);
+            this.btnrevenir.TabIndex = 3;
+            this.btnrevenir.Text = "Revenir à la liste des personnels";
+            this.btnrevenir.UseVisualStyleBackColor = true;
+            this.btnrevenir.Click += new System.EventHandler(this.btnrevenir_Click);
             // 
-            // button4
+            // btnmodifier
             // 
-            this.button4.Location = new System.Drawing.Point(442, 126);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(128, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Modifier l\'absence";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnmodifier.Location = new System.Drawing.Point(442, 92);
+            this.btnmodifier.Name = "btnmodifier";
+            this.btnmodifier.Size = new System.Drawing.Size(128, 23);
+            this.btnmodifier.TabIndex = 4;
+            this.btnmodifier.Text = "Modifier l\'absence";
+            this.btnmodifier.UseVisualStyleBackColor = true;
+            this.btnmodifier.Click += new System.EventHandler(this.btnmodifier_Click);
             // 
-            // groupBox1
+            // grpAbsence
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.cbmotif);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 199);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(549, 147);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.grpAbsence.Controls.Add(this.btnannuler);
+            this.grpAbsence.Controls.Add(this.cbmotif);
+            this.grpAbsence.Controls.Add(this.txtfin);
+            this.grpAbsence.Controls.Add(this.txtdebut);
+            this.grpAbsence.Controls.Add(this.label4);
+            this.grpAbsence.Controls.Add(this.label3);
+            this.grpAbsence.Controls.Add(this.label2);
+            this.grpAbsence.Controls.Add(this.btnajouter);
+            this.grpAbsence.Location = new System.Drawing.Point(15, 199);
+            this.grpAbsence.Name = "grpAbsence";
+            this.grpAbsence.Size = new System.Drawing.Size(549, 147);
+            this.grpAbsence.TabIndex = 6;
+            this.grpAbsence.TabStop = false;
+            this.grpAbsence.Text = "groupBox1";
             // 
-            // button5
+            // btnannuler
             // 
-            this.button5.Location = new System.Drawing.Point(299, 101);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Annuler";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnannuler.Location = new System.Drawing.Point(299, 101);
+            this.btnannuler.Name = "btnannuler";
+            this.btnannuler.Size = new System.Drawing.Size(128, 23);
+            this.btnannuler.TabIndex = 8;
+            this.btnannuler.Text = "Annuler";
+            this.btnannuler.UseVisualStyleBackColor = true;
+            this.btnannuler.Click += new System.EventHandler(this.button5_Click);
             // 
             // cbmotif
             // 
@@ -118,23 +123,21 @@ namespace CD1
             this.cbmotif.Size = new System.Drawing.Size(121, 21);
             this.cbmotif.TabIndex = 7;
             // 
-            // textBox2
+            // txtfin
             // 
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox2.Location = new System.Drawing.Point(104, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.Text = "Fin";
+            this.txtfin.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtfin.Location = new System.Drawing.Point(104, 65);
+            this.txtfin.Name = "txtfin";
+            this.txtfin.Size = new System.Drawing.Size(121, 20);
+            this.txtfin.TabIndex = 6;
             // 
-            // textBox1
+            // txtdebut
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Location = new System.Drawing.Point(104, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Début";
+            this.txtdebut.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtdebut.Location = new System.Drawing.Point(104, 30);
+            this.txtdebut.Name = "txtdebut";
+            this.txtdebut.Size = new System.Drawing.Size(121, 20);
+            this.txtdebut.TabIndex = 5;
             // 
             // label4
             // 
@@ -168,53 +171,53 @@ namespace CD1
             this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAbsences.Location = new System.Drawing.Point(9, 28);
             this.dgvAbsences.Name = "dgvAbsences";
-            this.dgvAbsences.Size = new System.Drawing.Size(418, 150);
+            this.dgvAbsences.Size = new System.Drawing.Size(337, 150);
             this.dgvAbsences.TabIndex = 7;
             // 
-            // groupBox2
+            // grpLesAbsences
             // 
-            this.groupBox2.Controls.Add(this.dgvAbsences);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Location = new System.Drawing.Point(15, 10);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(583, 190);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.grpLesAbsences.Controls.Add(this.dgvAbsences);
+            this.grpLesAbsences.Controls.Add(this.btnsupprimer);
+            this.grpLesAbsences.Controls.Add(this.btnrevenir);
+            this.grpLesAbsences.Controls.Add(this.btnmodifier);
+            this.grpLesAbsences.Location = new System.Drawing.Point(15, 10);
+            this.grpLesAbsences.Name = "grpLesAbsences";
+            this.grpLesAbsences.Size = new System.Drawing.Size(583, 190);
+            this.grpLesAbsences.TabIndex = 8;
+            this.grpLesAbsences.TabStop = false;
+            this.grpLesAbsences.Text = "groupBox2";
             // 
             // absence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 377);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpLesAbsences);
+            this.Controls.Add(this.grpAbsence);
             this.Name = "absence";
             this.Text = "Absence";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpAbsence.ResumeLayout(false);
+            this.grpAbsence.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.grpLesAbsences.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnajouter;
+        private System.Windows.Forms.Button btnsupprimer;
+        private System.Windows.Forms.Button btnrevenir;
+        private System.Windows.Forms.Button btnmodifier;
+        private System.Windows.Forms.GroupBox grpAbsence;
+        private System.Windows.Forms.Button btnannuler;
         private System.Windows.Forms.ComboBox cbmotif;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtfin;
+        private System.Windows.Forms.TextBox txtdebut;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvAbsences;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpLesAbsences;
     }
 }

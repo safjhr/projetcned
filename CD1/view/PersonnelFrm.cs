@@ -28,6 +28,8 @@ namespace CD1.view
         
 
 
+
+
         public personnel()
         {
             InitializeComponent();
@@ -41,6 +43,8 @@ namespace CD1.view
             RemplirListeServices();
             EnCourseModifPersonnel(false);
         }
+
+        
 
         private void RemplirListePersonnels()
         {
@@ -65,11 +69,11 @@ namespace CD1.view
             grpLesPersonnels.Enabled = !modif;
             if (modif)
             {
-                grpPersonnel.Text = "modifier un développeur";
+                grpPersonnel.Text = "modifier un personnel";
             }
             else
             {
-                grpPersonnel.Text = "ajouter un développeur";
+                grpPersonnel.Text = "ajouter un personnel";
                 txtnom.Text = "";
                 txtprenom.Text = "";
                 txttel.Text = "";
@@ -168,12 +172,43 @@ namespace CD1.view
             {
                 Personnel personnel = (Personnel)bdgPersonnels.Current;
                 absence frm = new absence(personnel);
-                frm.ShowDialog();
+                frm.Show();
+                this.Close();
+                
             }
             else
             {
                 MessageBox.Show("Veuillez sélectionner un personnel.", "Information");
             }
+        }
+
+        private int selectedPersonnelId;
+
+        private void dgvPersonnels_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvPersonnels.SelectedRows.Count > 0)
+            {
+                // Récupérer l'objet Personnel sélectionné à partir du BindingSource
+                Personnel personnel = (Personnel)bdgPersonnels.Current;
+
+                // Obtenez l'ID du personnel sélectionné
+                int selectedPersonnelId = personnel.IdPersonnel;
+
+                // Utilisez l'ID du personnel sélectionné comme vous le souhaitez, par exemple pour afficher ses absences
+                // Vous pouvez appeler une méthode pour charger les absences de ce personnel ici
+                // loadAbsencesForSelectedPersonnel(selectedPersonnelId);
+            }
+        }
+
+
+        public int SelectedPersonnelId
+        {
+            get { return selectedPersonnelId; }
+        }
+
+        private void btnquitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

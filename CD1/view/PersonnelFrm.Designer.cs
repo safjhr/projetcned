@@ -30,7 +30,7 @@ namespace CD1.view
         private void InitializeComponent()
         {
             this.btnsupprimer = new System.Windows.Forms.Button();
-            this.btnannuler = new System.Windows.Forms.Button();
+            this.btnquitter = new System.Windows.Forms.Button();
             this.btnmodifier = new System.Windows.Forms.Button();
             this.btnabsence = new System.Windows.Forms.Button();
             this.btnann = new System.Windows.Forms.Button();
@@ -63,14 +63,15 @@ namespace CD1.view
             this.btnsupprimer.UseVisualStyleBackColor = true;
             this.btnsupprimer.Click += new System.EventHandler(this.btnsupprimer_Click);
             // 
-            // btnannuler
+            // btnquitter
             // 
-            this.btnannuler.Location = new System.Drawing.Point(249, 175);
-            this.btnannuler.Name = "btnannuler";
-            this.btnannuler.Size = new System.Drawing.Size(75, 23);
-            this.btnannuler.TabIndex = 3;
-            this.btnannuler.Text = "Annuler";
-            this.btnannuler.UseVisualStyleBackColor = true;
+            this.btnquitter.Location = new System.Drawing.Point(249, 175);
+            this.btnquitter.Name = "btnquitter";
+            this.btnquitter.Size = new System.Drawing.Size(75, 23);
+            this.btnquitter.TabIndex = 3;
+            this.btnquitter.Text = "Quitter";
+            this.btnquitter.UseVisualStyleBackColor = true;
+            this.btnquitter.Click += new System.EventHandler(this.btnquitter_Click);
             // 
             // btnmodifier
             // 
@@ -204,6 +205,7 @@ namespace CD1.view
             this.dgvPersonnels.Name = "dgvPersonnels";
             this.dgvPersonnels.Size = new System.Drawing.Size(564, 150);
             this.dgvPersonnels.TabIndex = 12;
+            this.dgvPersonnels.SelectionChanged += new System.EventHandler(this.dgvPersonnels_SelectionChanged);
             // 
             // grpPersonnel
             // 
@@ -230,7 +232,7 @@ namespace CD1.view
             // 
             this.grpLesPersonnels.Controls.Add(this.dgvPersonnels);
             this.grpLesPersonnels.Controls.Add(this.btnmodifier);
-            this.grpLesPersonnels.Controls.Add(this.btnannuler);
+            this.grpLesPersonnels.Controls.Add(this.btnquitter);
             this.grpLesPersonnels.Controls.Add(this.btnabsence);
             this.grpLesPersonnels.Controls.Add(this.btnsupprimer);
             this.grpLesPersonnels.Location = new System.Drawing.Point(27, 35);
@@ -259,7 +261,7 @@ namespace CD1.view
 
         #endregion
         private System.Windows.Forms.Button btnsupprimer;
-        private System.Windows.Forms.Button btnannuler;
+        private System.Windows.Forms.Button btnquitter;
         private System.Windows.Forms.Button btnmodifier;
         private System.Windows.Forms.Button btnabsence;
         private System.Windows.Forms.Label label6;

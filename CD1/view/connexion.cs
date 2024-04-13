@@ -34,7 +34,8 @@ namespace CD1.view
                 if (controller.Controleconnexion(responsable))
                 {
                     personnel frm = new personnel();
-                    frm.ShowDialog();
+                    frm.Show();
+                    this.Hide();
                 }
                 else
                 {

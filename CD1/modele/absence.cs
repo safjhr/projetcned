@@ -8,7 +8,7 @@ namespace CD1.modele
 {
     public class Absence
     {
-        public Absence(int idpersonnel, System.DateTime datedebut, System.DateTime datefin, motif motif)
+        public Absence(int idpersonnel, System.DateTime datedebut, DateTime datefin, motif motif)
         {
             this.IdPersonnel = idpersonnel;
             this.DateDebut = datedebut;
@@ -23,7 +23,7 @@ namespace CD1.modele
 
         public int IdPersonnel { get; }
         public DateTime DateDebut { get; set; }
-        public DateTime? DateFin { get; set; }
+        public DateTime DateFin { get; set; }
         public motif Motif { get; set; }
     }
 }
