@@ -138,17 +138,53 @@ namespace CD1.DAL
         /// Demande de modifier une absence 
         /// </summary>
         /// <param name="absence">objet absence à modifier</param>
-        public void UpdateAbsence(Absence absence)
+
+       public void UpdateAbsence(int idPersonnel, DateTime oldDebut, DateTime oldFin, Absence newAbsence)
+{
+    if (access.Manager != null)
+    {
+        // Vérifier si une absence avec les mêmes dates et le même personnel existe déjà
+        if (IsAbsenceScheduled(idPersonnel, newAbsence.DateDebut, newAbsence.DateFin))
+        {
+            // Gérer le cas où une absence avec les mêmes dates et le même personnel existe déjà
+            Console.WriteLine("Une absence avec les mêmes dates et le même personnel existe déjà.");
+            return;
+        }
+
+        string req = "UPDATE absence SET datedebut = @newdebut, datefin = @newfin, idmotif = @idmotif " +
+                     "WHERE idpersonnel = @idpersonnel AND datedebut = @olddatedebut AND datefin = @olddatefin";
+        
+        Dictionary<string, object> parameters = new Dictionary<string, object> {
+            {"@idpersonnel", idPersonnel },
+            {"@newdebut", newAbsence.DateDebut },
+            {"@newfin", newAbsence.DateFin },
+            {"@idmotif", newAbsence.Motif.IdMotif },
+            {"@olddatedebut", oldDebut },
+            {"@olddatefin", oldFin }
+        };
+
+        try
+        {
+            access.Manager.ReqUpdate(req, parameters);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            Log.Error("Erreur lors de la mise à jour de l'absence. Requête : {0}, Erreur : {1}", req, e.Message);
+        }
+    }
+}
+        public void UpdateMotif(motif motif)
         {
             if (access.Manager != null)
             {
-                string req = "update absence set datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif where idpersonnel = @idpersonnel";
+                string req = "UPDATE motif SET libelle = @libelle WHERE idmotif = @idmotif";
+
                 Dictionary<string, object> parameters = new Dictionary<string, object> {
-                    {"@idpersonnel", absence.IdPersonnel},
-                    { "@datedebut", absence.DateDebut },
-                    { "@datefin", absence.DateFin },
-                    { "@idmotif", absence.Motif.IdMotif }
-                };
+            {"@idmotif", motif.IdMotif},
+            {"@libelle", motif.Libelle}
+        };
+
                 try
                 {
                     access.Manager.ReqUpdate(req, parameters);
@@ -156,19 +192,12 @@ namespace CD1.DAL
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                    Log.Error("AbsenceAccess.UpdateAbsence catch req={0} erreur={1}", req, e.Message);
-                    Environment.Exit(0);
+                    Log.Error("AbsenceAccess.UpdateMotif catch req={0} erreur={1}", req, e.Message);
                 }
             }
         }
-        /// <summary>
-        /// Demande de verifier si l'absence qu'on souhaite ajouter n'est pas semblable à une autre
-        /// </summary>
-        /// <param name="personnel"></param>
-        /// <param name="debut"></param>
-        /// <param name="fin"></param>
-        /// <returns></returns>
-        public bool IsAbsenceScheduled(Personnel personnel, DateTime debut, DateTime fin)
+
+        public bool IsAbsenceScheduled(int idPersonnel, DateTime debut, DateTime fin)
         {
             if (access.Manager != null)
             {
@@ -178,7 +207,7 @@ namespace CD1.DAL
                              "(datedebut BETWEEN @debut AND @fin))";
 
                 Dictionary<string, object> parameters = new Dictionary<string, object> {
-            { "@idpersonnel", personnel.IdPersonnel},
+            { "@idpersonnel", idPersonnel },
             { "@debut", debut },
             { "@fin", fin }
         };
@@ -186,18 +215,36 @@ namespace CD1.DAL
                 try
                 {
                     object result = access.Manager.ReqSelect(req, parameters);
-                    int count = Convert.ToInt32(result);
-                    return count > 0;
+
+                    // Vérifier si le résultat est une liste d'objets
+                    if (result is List<Object[]>)
+                    {
+                        // Convertir le résultat en liste d'objets
+                        List<Object[]> resultList = (List<Object[]>)result;
+
+                        // Extraire la première valeur de la première ligne de la liste
+                        if (resultList.Count > 0 && resultList[0].Length > 0)
+                        {
+                            object countObj = resultList[0][0];
+
+                            // Convertir la valeur de comptage en entier
+                            if (countObj is IConvertible)
+                            {
+                                int count = Convert.ToInt32(countObj);
+                                return count > 0;
+                            }
+                        }
+                    }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     Log.Error("Erreur lors de la vérification des absences programmées. Requête : {0}, Erreur : {1}", req, e.Message);
-                    return false;
                 }
             }
             return false;
         }
+
 
 
     }

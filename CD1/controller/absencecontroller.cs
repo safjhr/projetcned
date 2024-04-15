@@ -73,24 +73,21 @@ namespace CD1.controller
         /// Demande de modification d'une absence
         /// </summary>
         /// <param name="absence">objet absence à modifier</param>
-        public void UpdateAbsence(Absence absence)
+        public void UpdateAbsence(int idPersonnel, DateTime oldDebut, DateTime oldFin, Absence newAbsence)
         {
-            absenceAccess.UpdateAbsence(absence);
+            absenceAccess.UpdateAbsence(idPersonnel, oldDebut, oldFin, newAbsence);
         }
-        private personnelAccess personnelAccess = new personnelAccess(); // Initialisez personnelaccess
+        public void UpdateMotif(motif motif)
+        {
+            absenceAccess.UpdateMotif(motif);
+        }
+        public bool IsAbsenceScheduled(int idPersonnel, DateTime debut, DateTime fin)
+        {
+            return absenceAccess.IsAbsenceScheduled(idPersonnel, debut, fin);
+        }
 
 
-        /// <summary>
-        /// permet de vérifier si la date d'absence à ajouter n'est pas déja prise
-        /// </summary>
-        /// <param name="personnel"></param>
-        /// <param name="debut"></param>
-        /// <param name="fin"></param>
-        /// <returns></returns>
-        public bool IsAbsenceScheduled(Personnel personnel, DateTime debut, DateTime fin)
-        {
-            return absenceAccess.IsAbsenceScheduled(personnel, debut, fin);
-        }
+
 
 
 

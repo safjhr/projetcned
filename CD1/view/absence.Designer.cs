@@ -43,6 +43,7 @@ namespace CD1.view
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAbsences = new System.Windows.Forms.DataGridView();
             this.grpLesAbsences = new System.Windows.Forms.GroupBox();
+            this.btnmdf = new System.Windows.Forms.Button();
             this.grpAbsence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.grpLesAbsences.SuspendLayout();
@@ -54,7 +55,7 @@ namespace CD1.view
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(128, 23);
             this.btnajouter.TabIndex = 1;
-            this.btnajouter.Text = "Enregistrer";
+            this.btnajouter.Text = "Ajouter";
             this.btnajouter.UseVisualStyleBackColor = true;
             this.btnajouter.Click += new System.EventHandler(this.btnajouter_Click);
             // 
@@ -90,6 +91,7 @@ namespace CD1.view
             // 
             // grpAbsence
             // 
+            this.grpAbsence.Controls.Add(this.btnmdf);
             this.grpAbsence.Controls.Add(this.btnannuler);
             this.grpAbsence.Controls.Add(this.cbmotif);
             this.grpAbsence.Controls.Add(this.txtfin);
@@ -187,6 +189,16 @@ namespace CD1.view
             this.grpLesAbsences.TabStop = false;
             this.grpLesAbsences.Text = "groupBox2";
             // 
+            // btnmdf
+            // 
+            this.btnmdf.Location = new System.Drawing.Point(299, 43);
+            this.btnmdf.Name = "btnmdf";
+            this.btnmdf.Size = new System.Drawing.Size(128, 23);
+            this.btnmdf.TabIndex = 9;
+            this.btnmdf.Text = "Modifer";
+            this.btnmdf.UseVisualStyleBackColor = true;
+            this.btnmdf.Click += new System.EventHandler(this.btnmdf_Click);
+            // 
             // absence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,5 +231,6 @@ namespace CD1.view
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvAbsences;
         private System.Windows.Forms.GroupBox grpLesAbsences;
+        private System.Windows.Forms.Button btnmdf;
     }
 }

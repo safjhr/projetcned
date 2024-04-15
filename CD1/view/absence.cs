@@ -96,7 +96,7 @@ namespace CD1.view
             List<Absence> absences = controller.GetAbsencesForPersonnel(personnel);
             bdgAbsences.DataSource = absences;
             dgvAbsences.DataSource = bdgAbsences;
-            dgvAbsences.Columns["IdPersonnel"].Visible = true; // Assurez-vous que la colonne "IdPersonnel" est correctement cachée
+            dgvAbsences.Columns["IdPersonnel"].Visible = false ; // Assurez-vous que la colonne "IdPersonnel" est correctement cachée
             dgvAbsences.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
@@ -145,51 +145,37 @@ namespace CD1.view
         {
             if (!string.IsNullOrWhiteSpace(txtdebut.Text) && !string.IsNullOrWhiteSpace(txtfin.Text) && cbmotif.SelectedIndex != -1)
             {
-                motif motif = (motif)bdgMotifs.List[bdgMotifs.Position];
-                DateTime debut = DateTime.Parse(txtdebut.Text);
-                DateTime fin = DateTime.Parse(txtdebut.Text);
-
-
-                if (DateTime.Parse(txtfin.Text) < DateTime.Parse(txtdebut.Text))
+                
+                if (DateTime.TryParse(txtdebut.Text, out DateTime debut) && DateTime.TryParse(txtfin.Text, out DateTime fin))
                 {
-                    // Afficher une alerte à l'utilisateur
-                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Arrêter l'exécution de la méthode
-                }
-
-
-                if (controller.IsAbsenceScheduled(personnel, debut, fin))
-                {
-                    MessageBox.Show("Une absence est déjà programmée dans ce créneau.", "Créneau occupé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Arrêter l'exécution de la méthode
-                }
-
-                if (DateTime.TryParse(txtdebut.Text, out debut) && DateTime.TryParse(txtfin.Text, out fin))
-                {
-                    if (enCoursDeModifAbsence)
+                    
+                    if (fin < debut)
                     {
-                        Absence absence = (Absence)bdgAbsences.List[bdgAbsences.Position];
-                        absence.DateDebut = debut.Date;
-                        absence.DateFin = fin.Date;
-                        absence.Motif = motif;
-                        controller.UpdateAbsence(absence);
+                        MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.", "Erreur de saisie");
+                        return;
                     }
-                    else
+
+                   
+                    if (controller.IsAbsenceScheduled(personnel.IdPersonnel, debut, fin))
                     {
-                        Absence absence = new Absence(0, debut, fin, motif);
-                        controller.AddAbsenceForPersonnel(personnel, absence);
+                        MessageBox.Show("Une absence est déjà programmée dans ce créneau.", "Erreur de saisie");
+                        return;
                     }
+
+                    motif motif = (motif)cbmotif.SelectedItem;
+                    Absence absence = new Absence(0, debut, fin, motif);
+                    controller.AddAbsenceForPersonnel(personnel, absence);
                     RemplirListeAbsences();
                     EnCourseModifAbsence(false);
                 }
                 else
                 {
-                    MessageBox.Show("Les dates saisies ne sont pas valides. saisissez les sous forme de dd/MM/yyyy HH:mm:ss", "Information");
+                    MessageBox.Show("Les dates saisies ne sont pas valides. Veuillez saisir des dates au format jj/MM/yyyy HH:mm:ss", "Erreur de saisie");
                 }
             }
             else
             {
-                MessageBox.Show("Tous les champs doivent être remplis.", "Information");
+                MessageBox.Show("Veuillez remplir tous les champs.", "Information");
             }
         }
     
@@ -201,12 +187,12 @@ namespace CD1.view
         private void btnmodifier_Click(object sender, EventArgs e)
         {
             if (dgvAbsences.SelectedRows.Count > 0)
-            {
-                EnCourseModifAbsence(true);
+            { 
                 Absence absence = (Absence)bdgAbsences.List[bdgAbsences.Position];
-                txtdebut.Text = absence.DateDebut.ToString(); // Assurez-vous que absence.DateDebut est un objet DateTime
-                txtfin.Text = absence.DateFin.ToString();     // Assurez-vous que absence.DateFin est un objet DateTime
+                txtdebut.Text = absence.DateDebut.ToString();
+                txtfin.Text = absence.DateFin.ToString();
                 cbmotif.SelectedIndex = cbmotif.FindStringExact(absence.Motif.Libelle);
+                EnCourseModifAbsence(true);
             }
             else
             {
@@ -240,6 +226,66 @@ namespace CD1.view
             // Ouvrir le formulaire du personnel
             personnel personnel = new personnel();
             personnel.Show();
+        }
+
+        private void btnmdf_Click(object sender, EventArgs e)
+        {
+            if (dgvAbsences.SelectedRows.Count > 0)
+            {
+                motif motif = (motif)cbmotif.SelectedItem;
+                
+                if (dgvAbsences.SelectedRows[0].DataBoundItem is Absence absence)
+                {
+                    
+                    if (!string.IsNullOrWhiteSpace(txtdebut.Text) && !string.IsNullOrWhiteSpace(txtfin.Text) && cbmotif.SelectedIndex != -1)
+                    {
+                        
+                        if (DateTime.TryParse(txtdebut.Text, out DateTime debut) && DateTime.TryParse(txtfin.Text, out DateTime fin))
+                        {
+                            
+                            if (fin < debut)
+                            {
+                                MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.", "Erreur de saisie");
+                                return;
+                            }
+
+                            
+                            if (controller.IsAbsenceScheduled(absence.IdPersonnel, debut, fin))
+                            {
+                                MessageBox.Show("Une absence existe déjà dans ce créneau.", "Erreur");
+                                return;
+                            }
+
+                            
+
+                            
+                            controller.UpdateAbsence(absence.IdPersonnel, absence.DateDebut, absence.DateFin, new Absence(absence.IdPersonnel, debut, fin, motif));
+                            controller.UpdateMotif(motif);
+
+                            
+                            RemplirListeAbsences();
+
+                            
+                            txtdebut.Text = "";
+                            txtfin.Text = "";
+                            cbmotif.SelectedIndex = -1;
+                            EnCourseModifAbsence(false);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Les dates saisies ne sont pas valides. Veuillez saisir des dates au format jj/MM/yyyy HH:mm:ss", "Erreur de saisie");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Veuillez remplir tous les champs.", "Information");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une absence à modifier.", "Information");
+            }
         }
     }
 }
