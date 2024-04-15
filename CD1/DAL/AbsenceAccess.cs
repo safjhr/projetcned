@@ -8,14 +8,28 @@ using System.Threading.Tasks;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    /// Classe permettant de gérer les demandes concernant les absences
+    /// </summary>
     public class AbsenceAccess
     {
-
+        /// <summary>
+        /// Instance unique de l'accès aux données
+        /// </summary>
         private readonly Access access = null;
+
+        /// <summary>
+        /// Constructeur pour créer l'accès aux données
+        /// </summary>
         public AbsenceAccess()
         {
             access = Access.GetInstance();
         }
+
+        /// <summary>
+        /// Récupère et retourne les absences
+        /// </summary>
+        /// <returns>liste des absences</returns>
 
         public List<Absence> GetAbsencesForPersonnel(Personnel personnel)
         {
@@ -62,7 +76,10 @@ namespace CD1.DAL
             return absences;
         }
 
-
+        /// <summary>
+        /// Demande de suppresion d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à supprimer</param>
         public void DelAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -87,7 +104,11 @@ namespace CD1.DAL
         }
 
 
-
+        /// <summary>
+        /// Demande d'ajout d'une absence au personnel sélectionné
+        /// </summary>
+        /// <param name="personnel"></param>
+        /// <param name="absence">objet absence à ajouter</param>
         public void AddAbsenceForPersonnel(Personnel personnel, Absence absence)
         {
             if (access.Manager != null)
@@ -113,7 +134,10 @@ namespace CD1.DAL
         }
 
 
-
+        /// <summary>
+        /// Demande de modifier une absence 
+        /// </summary>
+        /// <param name="absence">objet absence à modifier</param>
         public void UpdateAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -137,7 +161,13 @@ namespace CD1.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// Demande de verifier si l'absence qu'on souhaite ajouter n'est pas semblable à une autre
+        /// </summary>
+        /// <param name="personnel"></param>
+        /// <param name="debut"></param>
+        /// <param name="fin"></param>
+        /// <returns></returns>
         public bool IsAbsenceScheduled(Personnel personnel, DateTime debut, DateTime fin)
         {
             if (access.Manager != null)

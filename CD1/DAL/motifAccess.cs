@@ -23,9 +23,9 @@ namespace CD1.DAL
         }
 
         /// <summary>
-        /// Récupère et retourne les profils
+        /// Récupère et retourne les motifs
         /// </summary>
-        /// <returns>liste des profils</returns>
+        /// <returns>liste des motifs</returns>
         public List<motif> GetLesMotifs()
         {
             List<motif> lesMotifs = new List<motif>();

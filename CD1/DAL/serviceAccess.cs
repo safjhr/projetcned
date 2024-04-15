@@ -21,9 +21,9 @@ namespace CD1.DAL
         }
 
         /// <summary>
-        /// Récupère et retourne les profils
+        /// Récupère et retourne les services
         /// </summary>
-        /// <returns>liste des profils</returns>
+        /// <returns>liste des services</returns>
         public List<service> GetLesServices()
         {
             List<service> lesServices = new List<service>();

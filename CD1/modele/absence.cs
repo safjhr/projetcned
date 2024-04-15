@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace CD1.modele
 {
+    /// <summary>
+    /// Classe métier liée à la table Absence
+    /// </summary>
     public class Absence
     {
+        /// <summary>
+        /// Valorise les propriétés
+        /// </summary>
+        /// <param name="idpersonnel"></param>
+        /// <param name="datedebut"></param>
+        /// <param name="datefin"></param>
+        /// <param name="motif"></param>
         public Absence(int idpersonnel, System.DateTime datedebut, DateTime datefin, motif motif)
         {
             this.IdPersonnel = idpersonnel;

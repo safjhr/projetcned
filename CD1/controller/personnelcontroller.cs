@@ -8,11 +8,11 @@ namespace CD1.controller
     public class personnelcontroller
     {
         /// <summary>
-        /// objet d'accès aux opérations possibles sur Developpeur
+        /// objet d'accès aux opérations possibles sur Personnel
         /// </summary>
         private readonly personnelAccess personnelAccess;
         /// <summary>
-        /// objet d'accès aux opérations possible sur Profil
+        /// objet d'accès aux opérations possible sur Service
         /// </summary>
         private readonly serviceAccess serviceAccess;
 
@@ -26,27 +26,27 @@ namespace CD1.controller
         }
 
         /// <summary>
-        /// Récupère et retourne les infos des développeurs
+        /// Récupère et retourne les infos des personnels
         /// </summary>
-        /// <returns>liste des développeurs</returns>
+        /// <returns>liste des personnels</returns>
         public List<Personnel> GetLesPersonnels()
         {
             return personnelAccess.GetLesPersonnels();
         }
 
         /// <summary>
-        /// Récupère et retourne les infos des profils
+        /// Récupère et retourne les infos des services
         /// </summary>
-        /// <returns>liste des profils</returns>
+        /// <returns>liste des services</returns>
         public List<service> GetLesServices()
         {
             return serviceAccess.GetLesServices();
         }
 
         /// <summary>
-        /// Demande de suppression d'un développeur
+        /// Demande de suppression d'un personnel
         /// </summary>
-        /// <param name="developpeur">objet developpeur à supprimer</param>
+        /// <param name="personnel">objet personnel à supprimer</param>
         public void DelPersonnel(Personnel personnel)
         {
             personnelAccess.DelPersonnel(personnel);
@@ -54,18 +54,18 @@ namespace CD1.controller
 
 
         /// <summary>
-        /// Demande d'ajout d'un développeur
+        /// Demande d'ajout d'un personnel
         /// </summary>
-        /// <param name="developpeur">objet developpeur à ajouter</param>
+        /// <param name="personnel">objet personnel à ajouter</param>
         public void AddPersonnel(Personnel personnel)
         {
             personnelAccess.AddPersonnel(personnel);
         }
 
         /// <summary>
-        /// Demande de modification d'un développeur
+        /// Demande de modification d'un personnel
         /// </summary>
-        /// <param name="developpeur">objet developpeur à modifier</param>
+        /// <param name="personnel">objet personnel à modifier</param>
         public void UpdatePersonnel(Personnel personnel)
         {
             personnelAccess.UpdatePersonnel(personnel);

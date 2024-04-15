@@ -109,7 +109,7 @@ namespace CD1.view
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(121, 23);
             this.btnajouter.TabIndex = 7;
-            this.btnajouter.Text = "Ajouter";
+            this.btnajouter.Text = "Enregistrer";
             this.btnajouter.UseVisualStyleBackColor = true;
             this.btnajouter.Click += new System.EventHandler(this.button1_Click);
             // 

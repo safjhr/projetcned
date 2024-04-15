@@ -54,7 +54,7 @@ namespace CD1.view
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(128, 23);
             this.btnajouter.TabIndex = 1;
-            this.btnajouter.Text = "Ajouter une absence";
+            this.btnajouter.Text = "Enregistrer";
             this.btnajouter.UseVisualStyleBackColor = true;
             this.btnajouter.Click += new System.EventHandler(this.btnajouter_Click);
             // 

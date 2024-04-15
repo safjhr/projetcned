@@ -5,15 +5,28 @@ using System.Collections.Generic;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    /// Classe permettant de gérer les demandes concernant les personnels
+    /// </summary>
     public class personnelAccess
     {
-        private readonly Access access = null;
+        /// <summary>
+        /// Instance unique de l'accès aux données
+        /// </summary>
 
+        private readonly Access access = null;
+        /// <summary>
+        /// Constructeur pour créer l'accès aux données
+        /// </summary>
         public personnelAccess()
         {
             access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Récupère et retourne les personnels
+        /// </summary>
+        /// <returns>liste des personnels</returns>
         public List<Personnel> GetLesPersonnels()
         {
             List<Personnel> lesPersonnels = new List<Personnel>();
@@ -48,6 +61,10 @@ namespace CD1.DAL
             }
             return lesPersonnels;
         }
+        /// <summary>
+        /// Demande de suppression d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à supprimer</param>
 
         public void DelPersonnel(Personnel personnel)
         {
@@ -69,6 +86,10 @@ namespace CD1.DAL
                 }
             }
         }
+        /// <summary>
+        /// Demande d'ajout d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à ajouter</param>
 
         public void AddPersonnel(Personnel personnel)
         {
@@ -94,7 +115,10 @@ namespace CD1.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// Demande de modification d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à modifier</param>
         public void UpdatePersonnel(Personnel personnel)
         {
             if (access.Manager != null)

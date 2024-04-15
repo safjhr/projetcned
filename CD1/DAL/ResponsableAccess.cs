@@ -21,12 +21,10 @@ namespace CD1.DAL
         }
 
         /// <summary>
-        /// Controle si l'utillisateur a le droit de se connecter (nom, prénom, pwd et profil "admin")
+        /// Controle si l'utillisateur a le droit de se connecter (login, pwd)
         /// </summary>
-        /// <param name="nom"></param>
-        /// <param name="prenom"></param>
+        /// <param name="login"></param>
         /// <param name="pwd"></param>
-        /// <returns>vrai si l'utilisateur a le profil "admin"</returns>
         public Boolean ControleConnexion(Responsable responsable)
         {
             if (access.Manager != null)

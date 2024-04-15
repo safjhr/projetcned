@@ -5,12 +5,12 @@ using CD1.modele;
 namespace CD1.controller
 { 
         /// <summary>
-        /// Contrôleur de FrmAuthentification
+        /// Contrôleur de connexion controleur
         /// </summary>
         public class connexioncontroller
         {
             /// <summary>
-            /// objet d'accès aux opérations possibles sur Developpeur
+            /// objet d'accès aux opérations possibles sur responsable
             /// </summary>
             private readonly ResponsableAccess responsableAccess;
 
@@ -23,9 +23,9 @@ namespace CD1.controller
             }
 
             /// <summary>
-            /// Vérifie l'authentification
+            /// Vérifie la connexion
             /// </summary>
-            /// <param name="admin">objet contenant les informations de connexion</param>
+            /// <param name="responsable">objet contenant les informations de connexion</param>
             /// <returns> vrai si les informations de connexion sont correctes</returns>
             public Boolean Controleconnexion(Responsable responsable)
             {

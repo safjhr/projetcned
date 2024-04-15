@@ -14,11 +14,11 @@ namespace CD1.view
         /// </summary>
         private Boolean enCoursDeModifPersonnel = false;
         /// <summary>
-        /// Objet pour gérer la liste des développeurs
+        /// Objet pour gérer la liste des personnels
         /// </summary>
         private readonly BindingSource bdgPersonnels = new BindingSource();
         /// <summary>
-        /// Objet pour gérer la liste des profils
+        /// Objet pour gérer la liste des services
         /// </summary>
         private readonly BindingSource bdgServices = new BindingSource();
         /// <summary>
@@ -36,6 +36,10 @@ namespace CD1.view
             Init();
         }
 
+        /// <summary>
+        /// création du controleur etremplissage des listes
+        /// </summary>
+
         private void Init()
         {
             controller = new personnelcontroller();
@@ -44,7 +48,9 @@ namespace CD1.view
             EnCourseModifPersonnel(false);
         }
 
-        
+        /// <summary>
+        /// afficher les personnels
+        /// </summary>
 
         private void RemplirListePersonnels()
         {
@@ -55,6 +61,10 @@ namespace CD1.view
             dgvPersonnels.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// afficher les services
+        /// </summary>
+
         private void RemplirListeServices()
         {
 
@@ -62,6 +72,11 @@ namespace CD1.view
             bdgServices.DataSource = lesServices;
             srvaff.DataSource = bdgServices;
         }
+
+        /// <summary>
+        /// modifcation d'affichage si on souhaite ajouter ou modifier le personnel 
+        /// </summary>
+        /// <param name="modif"></param>
 
         private void EnCourseModifPersonnel(Boolean modif)
         {
@@ -81,6 +96,12 @@ namespace CD1.view
             }
         }
 
+        /// <summary>
+        /// annuler la demande de modification ou d'ajout d'un personnel et permet de vider les zones de texte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnann_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -94,7 +115,11 @@ namespace CD1.view
         {
 
         }
-
+        /// <summary>
+        /// demande d'enregistrement d'ajout ou de modification d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (!txtnom.Text.Equals("") && !txtprenom.Text.Equals("") && !txttel.Text.Equals("") && !txtmail.Text.Equals("") && srvaff.SelectedIndex != -1)
@@ -124,6 +149,12 @@ namespace CD1.view
             }
         }
 
+        /// <summary>
+        /// permet de modifier le personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnmodifier_Click(object sender, EventArgs e)
         {
             if (dgvPersonnels.SelectedRows.Count > 0)
@@ -148,6 +179,12 @@ namespace CD1.view
             
         }
 
+        /// <summary>
+        /// permet de supprimer un developpeur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void btnsupprimer_Click(object sender, EventArgs e)
         {
             if (dgvPersonnels.SelectedRows.Count > 0)
@@ -165,7 +202,11 @@ namespace CD1.view
                 MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
             }
         }
-
+        /// <summary>
+        /// pour afficher la page avec la liste d'absence du personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnabsence_Click(object sender, EventArgs e)
         {
             if (dgvPersonnels.SelectedRows.Count > 0)
@@ -205,6 +246,12 @@ namespace CD1.view
         {
             get { return selectedPersonnelId; }
         }
+
+        /// <summary>
+        /// fermer l'application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnquitter_Click(object sender, EventArgs e)
         {

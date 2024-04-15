@@ -20,6 +20,12 @@ namespace CD1.view
         {
             controller = new connexioncontroller();
         }
+
+        /// <summary>
+        /// demande au controler de controler la connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             String login = txt_login.Text;
@@ -34,7 +40,7 @@ namespace CD1.view
                 if (controller.Controleconnexion(responsable))
                 {
                     personnel frm = new personnel();
-                    frm.Show();
+                    frm.Show ();
                     this.Hide();
                 }
                 else
