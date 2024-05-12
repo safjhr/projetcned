@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Habilitations.bddmanager
+namespace CD1.bddmanager
 {
     /// <summary>
     /// Singleton : connexion à la base de données et exécution des requêtes

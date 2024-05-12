@@ -1,7 +1,7 @@
 ﻿
-namespace CD1
+namespace CD1.view
 {
-    partial class Form1
+    partial class Connexion
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -31,8 +31,8 @@ namespace CD1
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_login = new System.Windows.Forms.TextBox();
+            this.txt_pwd = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,19 +54,20 @@ namespace CD1
             this.label2.TabIndex = 1;
             this.label2.Text = "Mot de passe";
             // 
-            // textBox1
+            // txt_login
             // 
-            this.textBox1.Location = new System.Drawing.Point(189, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txt_login.Location = new System.Drawing.Point(189, 127);
+            this.txt_login.Name = "txt_login";
+            this.txt_login.Size = new System.Drawing.Size(100, 20);
+            this.txt_login.TabIndex = 2;
             // 
-            // textBox2
+            // txt_pwd
             // 
-            this.textBox2.Location = new System.Drawing.Point(189, 179);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txt_pwd.Location = new System.Drawing.Point(189, 179);
+            this.txt_pwd.Name = "txt_pwd";
+            this.txt_pwd.PasswordChar = '*';
+            this.txt_pwd.Size = new System.Drawing.Size(100, 20);
+            this.txt_pwd.TabIndex = 3;
             // 
             // button1
             // 
@@ -76,18 +77,19 @@ namespace CD1
             this.button1.TabIndex = 0;
             this.button1.Text = "Se connecter";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 450);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_pwd);
+            this.Controls.Add(this.txt_login);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Connexion";
             this.Text = "connexion";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,8 +100,8 @@ namespace CD1
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_login;
+        private System.Windows.Forms.TextBox txt_pwd;
         private System.Windows.Forms.Button button1;
     }
 }
