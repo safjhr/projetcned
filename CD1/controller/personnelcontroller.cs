@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace CD1.controller
 {
+    /// <summary>
+    /// controleur de PersonnelForm
+    /// </summary>
     public class personnelcontroller
     {
         /// <summary>

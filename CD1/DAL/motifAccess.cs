@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    /// classe permettant de gérer les demandes de motif
+    /// </summary>
     public class motifAccess
     {
 

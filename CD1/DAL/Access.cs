@@ -5,9 +5,12 @@ using Serilog;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    ///  Singleton : classe d'accès à BddManager
+    /// </summary>
     public class Access
     {
-        // Chaîne de connexion à la base de données MySQL via PHPMyAdmin
+        
         private static readonly string connectionString = "server=localhost;user=root;database=projetcned";
 
         private static Access instance = null;

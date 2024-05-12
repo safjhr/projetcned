@@ -65,6 +65,7 @@ namespace CD1.view
             // 
             this.txt_pwd.Location = new System.Drawing.Point(189, 179);
             this.txt_pwd.Name = "txt_pwd";
+            this.txt_pwd.PasswordChar = '*';
             this.txt_pwd.Size = new System.Drawing.Size(100, 20);
             this.txt_pwd.TabIndex = 3;
             // 

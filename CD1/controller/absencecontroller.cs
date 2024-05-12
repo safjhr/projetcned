@@ -6,6 +6,9 @@ using System;
 
 namespace CD1.controller
 {
+    /// <summary>
+    /// controleur de absence
+    /// </summary>
     public class absencecontroller
     {
         /// <summary>
@@ -70,17 +73,33 @@ namespace CD1.controller
 
 
         /// <summary>
-        /// Demande de modification d'une absence
+        ///  Demande de modification d'une absence
         /// </summary>
-        /// <param name="absence">objet absence à modifier</param>
+        /// <param name="idPersonnel"></param>
+        /// <param name="oldDebut"></param>
+        /// <param name="oldFin"></param>
+        /// <param name="newAbsence"></param>
         public void UpdateAbsence(int idPersonnel, DateTime oldDebut, DateTime oldFin, Absence newAbsence)
         {
             absenceAccess.UpdateAbsence(idPersonnel, oldDebut, oldFin, newAbsence);
         }
+
+        /// <summary>
+        /// Demande de modification de motif
+        /// </summary>
+        /// <param name="motif"></param>
         public void UpdateMotif(motif motif)
         {
             absenceAccess.UpdateMotif(motif);
         }
+
+        /// <summary>
+        /// permet de voir si une absence est déja présente dans le créneau choisi
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <param name="debut"></param>
+        /// <param name="fin"></param>
+        /// <returns></returns>
         public bool IsAbsenceScheduled(int idPersonnel, DateTime debut, DateTime fin)
         {
             return absenceAccess.IsAbsenceScheduled(idPersonnel, debut, fin);

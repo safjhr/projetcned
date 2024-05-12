@@ -5,6 +5,9 @@ using Serilog;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    /// classe permettant de gérer les demandes concernant les services
+    /// </summary>
     public class serviceAccess
     {
         /// <summary>

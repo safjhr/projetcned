@@ -5,6 +5,9 @@ using Serilog;
 
 namespace CD1.DAL
 {
+    /// <summary>
+    /// classe permettant de gerer les demandes concernant le responsable
+    /// </summary>
     public class ResponsableAccess
     {
         /// <summary>
